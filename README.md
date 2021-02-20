@@ -67,3 +67,8 @@ docker-compose -f docker-compose.prod.yml up -d
 docker ps -a -f status=exited
 docker rm $(docker ps -a -f status=exited -q)
 docker images prune
+
+
+##Buildpacks FIX
+
+READ: https://stackoverflow.com/questions/60468025/dokku-php-extension-mbstring-is-missing-when-deploying-laravel-application
