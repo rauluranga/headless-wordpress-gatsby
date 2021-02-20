@@ -1,0 +1,41 @@
+version: '3'
+services:
+  gatsby-blog:
+    build: .
+    image: 'gatsby-blog:1.0'
+    container_name: gatsby-blog
+    ports:
+      - "80:8080"
+    depends_on:
+      - db
+    networks:
+      - app-network
+    env_file:
+      - ./.env
+    working_dir: /var/www/
+    volumes:
+      - ./config:/var/www/config:delegated
+      - ./vendor:/var/www/vendor:cached
+      - ./web:/var/www/web:delegated
+      - ./.env:/var/www/.env:delegated
+  db:
+    image: mysql:5.7
+    container_name: db
+    volumes:
+        - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: gatsby-blog
+        MYSQL_USER: wp
+        MYSQL_PASSWORD: wp
+    ports:
+        - "3306:3306"
+    networks:
+        - app-network
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local

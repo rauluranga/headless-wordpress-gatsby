@@ -1,0 +1,45 @@
+.git
+Dockerfile
+Dockerfile-prod
+.dockerignore
+node_modules
+npm-debug.log
+
+.buildpacks
+# .env
+.env.example
+.git
+.gitignore
+docker-compose.yml
+docker-compose-prod.yml
+Dockerfile
+etc
+nginx_app.conf
+php_custom.ini
+phpcs.xml
+Procfile
+README.md
+vendor
+wp-cli.yml
+
+# Application
+
+web/app/plugins/*
+web/app/mu-plugins/*
+web/app/updraft
+web/app/upgrade
+web/app/uploads/*
+web/app/mcloud-views
+
+!web/app/plugins/.gitkeep
+!web/app/mu-plugins/fca-core
+!web/app/mu-plugins/wp-migrate-db-pro
+!web/app/mu-plugins/filebird-pro
+!web/app/mu-plugins/bedrock-autoloader.php
+!web/app/mu-plugins/disallow-indexing.php
+!web/app/mu-plugins/register-theme-directory.php
+!web/app/uploads/.gitkeep
+
+# WordPress
+web/wp
+web/.htaccess
